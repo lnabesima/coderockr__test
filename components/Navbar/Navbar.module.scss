@@ -1,0 +1,52 @@
+@import '../../styles/base';
+
+.navbar {
+  background: $text-color;
+  color: white;
+  box-shadow: 0px 6px 10px 0px #0000001a;
+  display: flex;
+  justify-content: space-between;
+  padding-inline: calculateRem(320px);
+  margin-bottom: calculateRem(60px);
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: calculateRem(100px);
+  font-weight: 500;
+  font-size: calculateRem(32px);
+  align-items: center;
+  z-index: 999;
+}
+
+.logo {
+  font-weight: 700;
+  font-size: calculateRem(36px);
+  line-height: (42.66px);
+}
+
+.linkList {
+  list-style: none;
+  display: flex;
+  gap: calculateRem(120px);
+  align-items: center;
+
+  & li {
+    cursor: pointer;
+  }
+
+  &__link a {
+    text-decoration: none;
+    color: white;
+  }
+
+  &__newPost {
+    font-size: calculateRem(22px);
+    line-height: calculateRem(26.07px);
+    font-size: 700;
+    background-color: $text-gradient;
+    margin: auto 0;
+    padding: calculateRem(13px) calculateRem(34px);
+    border-radius: calculateRem(70px);
+  }
+}

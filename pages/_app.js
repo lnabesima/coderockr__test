@@ -1,11 +1,14 @@
 import '../styles/globals.css';
 import { Layout } from '../components/Layout/Layout';
+import { PostsProvider } from '../context/PostsData';
 
 function MyApp({ Component, pageProps }) {
   return (
-    <Layout>
-      <Component {...pageProps} />
-    </Layout>
+    <PostsProvider>
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
+    </PostsProvider>
   );
 }
 

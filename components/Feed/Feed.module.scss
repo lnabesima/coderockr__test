@@ -1,0 +1,104 @@
+@import '../../styles/base';
+
+.feedWrapper {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  row-gap: calculateRem(80px);
+}
+
+.smallCard {
+  background-color: white;
+  box-shadow: 0px 6px 10px 0px #0000001a;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-column-start: span 3;
+  position: relative;
+
+  &__img {
+    width: 100%;
+    overflow: hidden;
+    aspect-ratio: 1 / 1;
+    grid-column: 1 / 2;
+  }
+
+  &__postInfo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    grid-column: 2 / 6;
+    padding: calculateRem(35px) calculateRem(80px);
+    gap: calculateRem(14px);
+  }
+
+  &__moreButton {
+    position: absolute;
+    bottom: calculateRem(40px);
+    right: calculateRem(40px);
+  }
+}
+
+.smallCard[data-position='reverse'] {
+  grid-auto-flow: dense;
+}
+
+.smallCard[data-position='reverse'] .smallCard__img {
+  grid-column: 3 / 4;
+}
+
+.smallCard[data-position='reverse'] .smallCard__postInfo {
+  grid-column: 1 / 3;
+}
+
+.smallCard[data-position='reverse'] .smallCard__moreButton {
+  right: calculateRem(calc(40px + 40px + 300px));
+}
+
+.bigCard {
+  background-color: white;
+  box-shadow: 0px 6px 10px 0px #0000001a;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-column: 3 / span 4;
+  position: relative;
+
+  &__img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    grid-column: 1 / 2;
+    overflow: hidden;
+  }
+
+  &__postInfo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: calculateRem(24px);
+    grid-column: 2 / 3;
+    padding: calculateRem(162px) calculateRem(80px);
+  }
+}
+
+.bigCard[data-position='reverse'] {
+  grid-column: 1 / span 4;
+}
+
+.author,
+.article {
+  font-weight: 400;
+  font-size: calculateRem(24px);
+  line-height: calculateRem(34px);
+  color: $text-color;
+}
+
+.title {
+  font-weight: 700;
+  font-size: calculateRem(36px);
+  line-height: calculateRem(43px);
+  color: $text-gradient;
+}
+
+.article {
+  max-height: calculateRem(calc(34px * 3));
+  overflow: hidden;
+  text-overflow: hidden;
+}

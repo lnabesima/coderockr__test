@@ -17,19 +17,17 @@ export function PostsProvider({ children }) {
         },
       });
       const json = await APIData.json();
-      console.log(json);
+      // console.log(json);
+      // setPosts(json);
+
       return json;
     } catch (error) {
       console.log(error);
     }
   };
 
-  useEffect(() => {
-    getPosts(1);
-  }, []);
-
   return (
-    <PostsContext.Provider value={{ getPosts }}>
+    <PostsContext.Provider value={{ getPosts, posts }}>
       {children}
     </PostsContext.Provider>
   );

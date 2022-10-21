@@ -98,7 +98,7 @@
 }
 
 .article {
-  max-height: calculateRem(calc(34px * 3));
+  max-height: calculateRem(calc(34px * 1.9));
   overflow: hidden;
   text-overflow: hidden;
 }

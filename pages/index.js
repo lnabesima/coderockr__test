@@ -1,10 +1,15 @@
 import { useEffect, useState } from 'react';
 import { Feed } from '../components/Feed/Feed';
-import { FeedItem } from '../components/Feed/FeedItem';
+import { ContactModal } from '../components/Modal/ContactModal';
+import { NewPostModal } from '../components/Modal/NewPostModal';
+import { PostModal } from '../components/Modal/PostModal';
 
 const Home = () => {
   const [pages, setPages] = useState([1]);
   const [infinite, setInfinite] = useState(true);
+  const [showContactModal, setShowContactModal] = useState(true);
+  const [showPostModal, setShowPostModal] = useState(false);
+  const [showNewPostModal, setShowNewPostModal] = useState(false);
 
   useEffect(() => {
     let wait = false;
@@ -33,7 +38,12 @@ const Home = () => {
 
   return (
     <>
-    {pages.map((page) => <Feed key={page} page={page} setInfinite={setInfinite}/>)}
+      {pages.map(page => (
+        <Feed key={page} page={page} setInfinite={setInfinite} />
+      ))}
+      {showContactModal && <ContactModal />}
+      {showNewPostModal && <NewPostModal />}
+      {showPostModal && <PostModal />}
     </>
   );
 };

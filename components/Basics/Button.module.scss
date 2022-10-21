@@ -1,0 +1,25 @@
+@import '../../styles/base';
+
+.button {
+  background-color: $text-color;
+  font-size: calculateRem(24px);
+  color: white;
+  width: calculateRem(230px);
+  height: calculateRem(60px);
+  align-self: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: calculateRem(39px);
+  border-radius: calculateRem(4px);
+
+  &.disabled {
+    opacity: 0.5;
+    cursor: wait;
+  }
+}
+
+.img {
+  width: calculateRem(21px);
+  height: calculateRem(18px);
+}

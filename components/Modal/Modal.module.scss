@@ -1,0 +1,52 @@
+@import '../../styles/base';
+
+.contactModal {
+  background-color: rgba(0, 0, 0, 0.6);
+  height: 100vh;
+  width: 100vw;
+  z-index: 5;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.wrapper {
+  z-index: 4;
+  background-color: #fff;
+  width: calculateRem(810px);
+  height: 70%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow-y: auto;
+  padding: calculateRem(90px) calculateRem(122px) calculateRem(112px);
+}
+
+.close {
+  position: absolute;
+  top: calculateRem(52px);
+  right: calculateRem(51px);
+}
+
+.title {
+  font-size: calculateRem(36px);
+  line-height: calculateRem(42.66px);
+  font-weight: 700;
+  color: $text-gradient;
+  margin-block: calculateRem(90px) calculateRem(50px);
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: calculateRem(60px);
+  width: 100%;
+}

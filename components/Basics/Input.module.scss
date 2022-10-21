@@ -1,0 +1,28 @@
+@import '../../styles/base';
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: calculateRem(4px);
+  width: 100%;
+}
+
+.label {
+  font-weight: 400;
+  font-size: calculateRem(24px);
+  line-height: calculateRem(34px);
+}
+
+.input,
+.textArea {
+  padding: calculateRem(9px) calculateRem(18px);
+  border: 1px solid $text-color;
+  border-radius: calculateRem(4px);
+  width: 100%;
+  font-size: calculateRem(24px);
+}
+
+.textArea {
+  height: calculateRem(200px);
+  resize: none;
+}

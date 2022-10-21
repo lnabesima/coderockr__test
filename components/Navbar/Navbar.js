@@ -24,10 +24,8 @@ const Navbar = () => {
           onClick={() => setOpenContactModal(!openContactModal)}>
           Contact
         </li>
-        <li
-          className={styles.linkList__newPost}
-          onClick={() => setOpenNewPostModal(!openNewPostModal)}>
-          New Post
+        <li className={styles.linkList__newPost}>
+          <Link href='/newpost'>New Post</Link>
         </li>
       </ul>
     </div>

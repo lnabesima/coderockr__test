@@ -35,7 +35,8 @@
     cursor: pointer;
   }
 
-  &__link a {
+  &__link a,
+  &__newPost a {
     text-decoration: none;
     color: white;
   }

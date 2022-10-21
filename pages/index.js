@@ -9,14 +9,8 @@ const Home = () => {
   const [pages, setPages] = useState([1]);
   const [infinite, setInfinite] = useState(true);
   const [showPostModal, setShowPostModal] = useState(false);
-  
 
-  const {
-    openContactModal,
-    setOpenContactModal,
-    openNewPostModal,
-    setOpenNewPostModal,
-  } = useNavbarData();
+  const { openContactModal, setOpenContactModal } = useNavbarData();
 
   useEffect(() => {
     let wait = false;
@@ -49,7 +43,6 @@ const Home = () => {
         <Feed key={page} page={page} setInfinite={setInfinite} />
       ))}
       {openContactModal && <ContactModal />}
-      {openNewPostModal && <NewPostModal />}
       {showPostModal && <PostModal />}
     </>
   );

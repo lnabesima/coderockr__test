@@ -1,7 +1,7 @@
 @import '../../styles/base';
 
-.contactModal {
-  background-color: rgba(0, 0, 0, 0.6);
+.contactModal,
+.contactModalPost {
   height: 100vh;
   width: 100vw;
   z-index: 5;
@@ -16,11 +16,15 @@
   flex-direction: column;
 }
 
-.wrapper {
+.contactModal {
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.wrapper,
+.wrapperPost {
   z-index: 4;
   background-color: #fff;
-  width: calculateRem(810px);
-  height: calculateRem(1100px);
+
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -28,6 +32,24 @@
   position: relative;
   overflow-y: auto;
   padding: calculateRem(90px) calculateRem(122px) calculateRem(112px);
+}
+
+.wrapper {
+  width: calculateRem(810px);
+  height: calculateRem(1100px);
+}
+
+.wrapperPost {
+  width: calculateRem(1280px);
+  height: calculateRem(1612px);
+  box-shadow: 0px 6px 10px 0px #0000001a;
+  margin-top: calculateRem(100px);
+
+  & > img {
+    width: calculateRem(400px);
+    aspect-ratio: 1 / 1;
+    margin-bottom: calculateRem(78px);
+  }
 }
 
 .close {
@@ -41,8 +63,7 @@
   line-height: calculateRem(42.66px);
   font-weight: 700;
   color: $text-gradient;
-  // margin-block: calculateRem(90px) calculateRem(50px);
-  margin-bottom: calculateRem(50pxg);
+  margin-bottom: calculateRem(50px);
 }
 
 .form {

@@ -1,54 +1,35 @@
 import styles from './Feed.module.scss';
+import { useEffect, useState } from 'react';
+import { usePostsContext } from '../../context/PostsData';
 import { FeedItem } from './FeedItem';
 
-const Feed = () => {
+const Feed = ({ page, setInfinite }) => {
+  const { getPosts } = usePostsContext();
+  const [posts, setPosts] = useState([]);
+
+  useEffect(() => {
+    const getApiData = async () => {
+      const data = await getPosts(page);
+      setPosts(data);
+      if (data && data.length < 6) setInfinite(false);
+    };
+    getApiData();
+  }, [getPosts, page, setInfinite]);
+
   return (
     <div className={styles.feedWrapper}>
-      <FeedItem
-        author='Haleigh Gorczany'
-        title='Optio voluptatem autem quis.'
-        article='<p>Ipsum doloremque est excepturi. Nulla sit ipsa consequuntur aspernatur occaecati animi sequi quam.'
-        imgUrl='https://source.unsplash.com/640x640/?trees'
-        type='small'
-      />
-      <FeedItem
-        author='Haleigh Gorczany'
-        title='Optio voluptatem autem quis.'
-        article='<p>Ipsum doloremque est excepturi. Nulla sit ipsa consequuntur aspernatur occaecati animi sequi quam.'
-        imgUrl='https://source.unsplash.com/640x640/?trees'
-        type='small'
-      />
-      <FeedItem
-        author='Haleigh Gorczany'
-        title='Optio voluptatem autem quis.'
-        article='<p>Ipsum doloremque est excepturi. Nulla sit ipsa consequuntur aspernatur occaecati animi sequi quam.'
-        imgUrl='https://source.unsplash.com/640x640/?trees'
-        type='big'
-      />
-      <FeedItem
-        author='Haleigh Gorczany'
-        title='Optio voluptatem autem quis.'
-        article='<p>Ipsum doloremque est excepturi. Nulla sit ipsa consequuntur aspernatur occaecati animi sequi quam.'
-        imgUrl='https://source.unsplash.com/640x640/?trees'
-        type='small'
-        data-position='reverse'
-      />
-      <FeedItem
-        author='Haleigh Gorczany'
-        title='Optio voluptatem autem quis.'
-        article='<p>Ipsum doloremque est excepturi. Nulla sit ipsa consequuntur aspernatur occaecati animi sequi quam.'
-        imgUrl='https://source.unsplash.com/640x640/?trees'
-        type='small'
-        data-position='reverse'
-      />
-      <FeedItem
-        author='Haleigh Gorczany'
-        title='Optio voluptatem autem quis.'
-        article='<p>Ipsum doloremque est excepturi. Nulla sit ipsa consequuntur aspernatur occaecati animi sequi quam.'
-        imgUrl='https://source.unsplash.com/640x640/?trees'
-        type='big'
-        data-position='reverse'
-      />
+      {posts &&
+        posts?.map((post, index) => (
+          <FeedItem
+            key={post.id}
+            author={post.author}
+            title={post.title}
+            article={post.article}
+            imgUrl={post.imageUrl}
+            type={index === 2 || index === 5 ? 'big' : 'small'}
+            data-position={index >= 3 ? 'reverse' : null}
+          />
+        ))}
     </div>
   );
 };

@@ -17,9 +17,12 @@ export function PostsProvider({ children }) {
         },
       });
       const json = await APIData.json();
-      // console.log(json);
-      // setPosts(json);
-
+      json.forEach(obj => {
+        obj.title = obj.title.replace(/(&nbsp;|<([^>]+)>|(\\n))/, '');
+        obj.article = obj.article.replace(/&nbsp;|<([^>]+)>|(\\n)/, '');
+        return obj;
+      });
+      console.log(json);
       return json;
     } catch (error) {
       console.log(error);

@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useNavbarData } from '../../context/NavbarData';
 import { Button } from '../Basics/Button';
 import { Input } from '../Basics/Input';
 import { TextArea } from '../Basics/TextArea';
@@ -10,6 +11,12 @@ export const ContactModal = () => {
   const [email, setEmail] = useState('');
   const [tel, setTel] = useState('');
   const [message, setMessage] = useState('');
+
+  const { openContactModal, setOpenContactModal } = useNavbarData();
+
+  const handleOutsideClick = event => {
+    if (event.target === event.currentTarget) setOpenContactModal(false);
+  };
 
   const handleSubmit = event => {
     event.preventDefault();
@@ -27,9 +34,14 @@ export const ContactModal = () => {
   };
 
   return (
-    <section className={styles.contactModal}>
+    <section className={styles.contactModal} onClick={handleOutsideClick}>
       <div className={styles.wrapper}>
-        <img src='/close.svg' alt='' className={styles.close} />
+        <img
+          src='/close.svg'
+          alt=''
+          className={styles.close}
+          onClick={() => setOpenContactModal(false)}
+        />
         <h2 className={styles.title}>Contact</h2>
         <form action='' className={styles.form}>
           <Input

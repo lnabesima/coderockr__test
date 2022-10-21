@@ -20,7 +20,7 @@
   z-index: 4;
   background-color: #fff;
   width: calculateRem(810px);
-  height: 70%;
+  height: calculateRem(1100px);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -41,7 +41,8 @@
   line-height: calculateRem(42.66px);
   font-weight: 700;
   color: $text-gradient;
-  margin-block: calculateRem(90px) calculateRem(50px);
+  // margin-block: calculateRem(90px) calculateRem(50px);
+  margin-bottom: calculateRem(50pxg);
 }
 
 .form {

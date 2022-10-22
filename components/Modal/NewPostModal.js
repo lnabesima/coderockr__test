@@ -30,9 +30,13 @@ export const NewPostModal = () => {
   return (
     <section className={styles.contactModalPost}>
       <div className={styles.wrapperPost}>
-        <img src='/Photo.png' alt='Author profile picture' />
+        <img
+          src='/Photo.png'
+          alt='Author profile picture'
+          className={styles.profilePicture}
+        />
 
-        <h2 className={styles.title}>New Post</h2>
+        <h2 className={styles.titlePost}>New Post</h2>
         <form action='' className={styles.form}>
           <Input
             type='text'

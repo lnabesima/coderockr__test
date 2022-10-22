@@ -4,7 +4,7 @@
 .contactModalPost {
   height: 100vh;
   width: 100vw;
-  z-index: 5;
+  z-index: 10;
   position: fixed;
   inset: 0;
   display: flex;
@@ -23,7 +23,6 @@ $base-wrapper-padding-bottom: 112px;
 
 .wrapper,
 .wrapperPost {
-  z-index: 4;
   background-color: #fff;
   margin: calculateRem(150px) calculateRem(555px) calculateRem(100px);
   display: flex;
@@ -57,6 +56,7 @@ $base-wrapper-width: 810px;
 $base-wrapper-height: 1113px;
 
 .wrapper {
+  z-index: 8;
   width: calculateRem($base-wrapper-width);
   height: calculateRem($base-wrapper-height);
 
@@ -76,15 +76,70 @@ $base-wrapper-height: 1113px;
   }
 }
 
+$base-wrapperPost-width: 1280px;
+$base-wrapperPost-height: 1612px;
+$base-profilePicture-width: 400px;
+$base-profilePicture-marginBottom: 78px;
+$base-wrapperPost-padding-inline: 357px;
+
 .wrapperPost {
-  width: calculateRem(1280px);
-  height: calculateRem(1612px);
+  z-index: 5;
+  width: calculateRem($base-wrapperPost-width);
+  height: calculateRem($base-wrapperPost-height);
   box-shadow: 0px 6px 10px 0px #0000001a;
+  padding-inline: calculateRem($base-wrapperPost-padding-inline);
+
+  @include device(laptop) {
+    padding-inline: calculateRem(
+      calc($base-wrapperPost-padding-inline * (3 / 4))
+    );
+    width: calculateRem(calc($base-wrapperPost-height * (3 / 4)));
+    height: calculateRem(calc($base-wrapperPost-height * (3 / 4)));
+  }
+
+  @include device(tablet) {
+    padding-inline: calculateRem(
+      calc($base-wrapperPost-padding-inline * (2 / 4))
+    );
+    width: calculateRem(calc($base-wrapperPost-height * (2 / 4)));
+    height: calculateRem(calc($base-wrapperPost-height * (2 / 4)));
+  }
+
+  @include device(mobile) {
+    padding-inline: calculateRem(
+      calc($base-wrapperPost-padding-inline * (1 / 5))
+    );
+    width: calculateRem(calc($base-wrapperPost-height * (1 / 5)));
+    height: calculateRem(calc($base-wrapperPost-height * (1 / 5)));
+  }
 
   & > img {
-    width: calculateRem(400px);
     aspect-ratio: 1 / 1;
-    margin-bottom: calculateRem(78px);
+    margin-bottom: calculateRem($base-profilePicture-marginBottom);
+    margin-top: calculateRem(calc($base-profilePicture-width * 2));
+    width: calculateRem($base-profilePicture-width);
+
+    @include device(laptop) {
+      width: calculateRem(calc($base-profilePicture-width * (3 / 4)));
+    }
+    @include device(tablet) {
+      width: calculateRem(calc($base-profilePicture-width * (2 / 4)));
+      margin-top: calculateRem(
+        calc(($base-profilePicture-width * 2)) * (3 / 4)
+      );
+      margin-bottom: calculateRem(
+        calc($base-profilePicture-marginBottom * (2 / 4))
+      );
+    }
+    @include device(mobile) {
+      width: calculateRem(calc($base-profilePicture-width * (2 / 4)));
+      margin-top: calculateRem(
+        calc(($base-profilePicture-width * 2)) * (3 / 5)
+      );
+      margin-bottom: calculateRem(
+        calc($base-profilePicture-marginBottom * (3 / 5))
+      );
+    }
   }
 }
 
@@ -113,10 +168,11 @@ $base-close-button-size: 28px;
 }
 
 $base-title-font-size: 36px;
-$base-title-margin-top: 291px;
+$base-title-margin-top: 191px;
 $base-title-margin-botton: 0px;
 
-.title {
+.title,
+.titlePost {
   font-size: calculateRem($base-title-font-size);
   line-height: calculateRem(42.66px);
   font-weight: 700;
@@ -137,9 +193,14 @@ $base-title-margin-botton: 0px;
   }
   @include device(mobile) {
     font-size: calculateRem(calc($base-title-font-size * (2 / 4)));
-    margin-block: calculateRem(calc($base-title-margin-top * (2 / 4)))
+    margin-block: calculateRem(calc($base-title-margin-top * (1 / 10)))
       calculateRem(calc($base-title-margin-botton * (2 / 4)));
   }
+}
+
+.titlePost {
+  margin-block: 0 0;
+  padding-block: 0 0;
 }
 
 $base-form-gap: 60px;
@@ -158,4 +219,7 @@ $base-form-gap: 60px;
   @include device(mobile) {
     gap: calculateRem(calc($base-form-gap * (1 / 4)));
   }
+}
+
+.profilePicture {
 }

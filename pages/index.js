@@ -10,7 +10,7 @@ const Home = () => {
   const [infinite, setInfinite] = useState(true);
   const [showPostModal, setShowPostModal] = useState(false);
 
-  const { openContactModal, setOpenContactModal } = useNavbarData();
+  const { openContactModal } = useNavbarData();
 
   useEffect(() => {
     let wait = false;

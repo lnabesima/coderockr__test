@@ -1,6 +1,6 @@
 # Coderockr Test - Rockr Blog
 
-:link: (Live Preview)[https://coderockr-test-5sfu02p7f-lnabesima.vercel.app/]
+:link: [Live Preview](https://coderockr-test-5sfu02p7f-lnabesima.vercel.app/)
 
 :brazil: Esse é um projeto que reproduz um blog.
 
@@ -23,7 +23,7 @@ O [SASS](https://sass-lang.com/) foi usado como ferramenta de desenvolvimento da
 
 :us: This is a project that reproduces a blog.
 
-:link: (Live Preview)[https://coderockr-test-5sfu02p7f-lnabesima.vercel.app/]
+:link: [Live Preview](https://coderockr-test-5sfu02p7f-lnabesima.vercel.app/)
 
 The posts are fetched from an external API and rendered in a list, showing post image, author, title and first lines of the post. This list automatically fetches new posts, according to the user's scroll(infinite scroll).
 

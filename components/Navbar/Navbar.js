@@ -10,8 +10,6 @@ const Navbar = () => {
     setOpenNewPostModal,
   } = useNavbarData();
 
-  console.log(openContactModal);
-
   return (
     <div className={styles.navbar}>
       <p className={styles.logo}>Rockr Blog</p>

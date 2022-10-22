@@ -2,10 +2,12 @@ import styles from './Feed.module.scss';
 import { useEffect, useState } from 'react';
 import { usePostsContext } from '../../context/PostsData';
 import { FeedItem } from './FeedItem';
+import { useRouter } from 'next/router';
 
 const Feed = ({ page, setInfinite }) => {
   const { getPosts } = usePostsContext();
   const [posts, setPosts] = useState([]);
+  const router = useRouter();
 
   useEffect(() => {
     const getApiData = async () => {
@@ -15,6 +17,10 @@ const Feed = ({ page, setInfinite }) => {
     };
     getApiData();
   }, [getPosts, page, setInfinite]);
+
+  function push(id) {
+    router.push(`/${id}`);
+  }
 
   return (
     <div className={styles.feedWrapper}>
@@ -28,6 +34,7 @@ const Feed = ({ page, setInfinite }) => {
             imgUrl={post.imageUrl}
             type={index === 2 || index === 5 ? 'big' : 'small'}
             data-position={index >= 3 ? 'reverse' : null}
+            onClick={() => push(post.id)}
           />
         ))}
     </div>

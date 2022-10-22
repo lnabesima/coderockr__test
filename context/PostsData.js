@@ -22,15 +22,25 @@ export function PostsProvider({ children }) {
         obj.article = obj.article.replace(/&nbsp;|<([^>]+)>|(\\n)/, '');
         return obj;
       });
-      console.log(json);
       return json;
     } catch (error) {
       console.log(error);
     }
   };
 
+  const getPost = async id => {
+    const APIData = await fetch(`${API_URL}/${id}`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+    const json = await APIData.json();
+    return json;
+  };
+
   return (
-    <PostsContext.Provider value={{ getPosts, posts }}>
+    <PostsContext.Provider value={{ getPosts, getPost, posts }}>
       {children}
     </PostsContext.Provider>
   );

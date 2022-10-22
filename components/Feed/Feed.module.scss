@@ -5,6 +5,7 @@
   grid-template-columns: repeat(6, 1fr);
   row-gap: calculateRem(80px);
   margin-bottom: calculateRem(80px);
+  width: 100vw;
 }
 
 .smallCard {

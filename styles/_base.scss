@@ -1,7 +1,7 @@
 @use 'sass:math';
 
 $breakpoints: (
-  'mobile': 764px,
+  'mobile': 1000px,
   'tablet': 1048px,
   'laptop': 1440px,
 );
@@ -16,5 +16,5 @@ $breakpoints: (
   }
 }
 
-$text-color: #2D2D2D;
-$text-gradient: #F1A10A
+$text-color: #2d2d2d;
+$text-gradient: #f1a10a;

@@ -6,10 +6,7 @@
   width: 100vw;
   z-index: 5;
   position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  inset: 0;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -20,30 +17,69 @@
   background-color: rgba(0, 0, 0, 0.6);
 }
 
+$base-wrapper-padding-top: 90px;
+$base-wrapper-padding-inline: 122px;
+$base-wrapper-padding-bottom: 112px;
+
 .wrapper,
 .wrapperPost {
   z-index: 4;
   background-color: #fff;
-
+  margin: calculateRem(150px) calculateRem(555px) calculateRem(100px);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   position: relative;
   overflow-y: auto;
-  padding: calculateRem(90px) calculateRem(122px) calculateRem(112px);
+  padding: calculateRem($base-wrapper-padding-top)
+    calculateRem($base-wrapper-padding-inline)
+    calculateRem($base-wrapper-padding-bottom);
+
+  @include device(laptop) {
+    padding: calculateRem(calc($base-wrapper-padding-top * (3 / 4)))
+      calculateRem(calc($base-wrapper-padding-inline * (3 / 4)))
+      calculateRem(calc($base-wrapper-padding-bottom * (3 / 4)));
+  }
+  @include device(tablet) {
+    padding: calculateRem(calc($base-wrapper-padding-top * (2 / 4)))
+      calculateRem(calc($base-wrapper-padding-inline * (2 / 4)))
+      calculateRem(calc($base-wrapper-padding-bottom * (2 / 4)));
+  }
+  @include device(mobile) {
+    padding: calculateRem(calc($base-wrapper-padding-top * (1 / 4)))
+      calculateRem(calc($base-wrapper-padding-inline * (1 / 4)))
+      calculateRem(calc($base-wrapper-padding-bottom * (1 / 4)));
+  }
 }
 
+$base-wrapper-width: 810px;
+$base-wrapper-height: 1113px;
+
 .wrapper {
-  width: calculateRem(810px);
-  height: calculateRem(1100px);
+  width: calculateRem($base-wrapper-width);
+  height: calculateRem($base-wrapper-height);
+
+  @include device(laptop) {
+    width: calculateRem(calc($base-wrapper-height * (3 / 4)));
+    height: calculateRem(calc($base-wrapper-height * (3 / 4)));
+  }
+
+  @include device(tablet) {
+    width: calculateRem(calc($base-wrapper-height * (2 / 4)));
+    height: calculateRem(calc($base-wrapper-height * (2 / 4)));
+  }
+
+  @include device(mobile) {
+    width: calculateRem(calc($base-wrapper-height * (1 / 4)));
+    height: calculateRem(calc($base-wrapper-height * (1 / 4)));
+  }
 }
 
 .wrapperPost {
   width: calculateRem(1280px);
   height: calculateRem(1612px);
   box-shadow: 0px 6px 10px 0px #0000001a;
-  margin-top: calculateRem(100px);
 
   & > img {
     width: calculateRem(400px);
@@ -52,23 +88,74 @@
   }
 }
 
+$base-close-button: 50px;
+$base-close-button-size: 28px;
 .close {
   position: absolute;
-  top: calculateRem(52px);
-  right: calculateRem(51px);
+  top: calculateRem($base-close-button);
+  right: calculateRem($base-close-button);
+
+  @include device(laptop) {
+    top: calculateRem(calc($base-close-button * (3 / 4)));
+    right: calculateRem(calc($base-close-button * (3 / 4)));
+    width: calculateRem(calc($base-close-button-size * (3 / 4)));
+  }
+  @include device(tablet) {
+    top: calculateRem(calc($base-close-button * (2 / 4)));
+    right: calculateRem(calc($base-close-button * (2 / 4)));
+    width: calculateRem(calc($base-close-button-size * (2 / 4)));
+  }
+  @include device(mobile) {
+    top: calculateRem(calc($base-close-button * (1 / 4)));
+    right: calculateRem(calc($base-close-button * (1 / 4)));
+    width: calculateRem(calc($base-close-button-size * (2 / 4)));
+  }
 }
 
+$base-title-font-size: 36px;
+$base-title-margin-top: 291px;
+$base-title-margin-botton: 0px;
+
 .title {
-  font-size: calculateRem(36px);
+  font-size: calculateRem($base-title-font-size);
   line-height: calculateRem(42.66px);
   font-weight: 700;
   color: $text-gradient;
-  margin-bottom: calculateRem(50px);
+  flex-shrink: 0;
+  padding-block: calculateRem($base-title-margin-top)
+    calculateRem($base-title-margin-botton);
+
+  @include device(laptop) {
+    font-size: calculateRem(calc($base-title-font-size * (3 / 4)));
+    margin-block: calculateRem(calc($base-title-margin-top * (3 / 4)))
+      calculateRem(calc($base-title-margin-botton * (3 / 4)));
+  }
+  @include device(tablet) {
+    font-size: calculateRem(calc($base-title-font-size * (3 / 4)));
+    margin-block: calculateRem(calc($base-title-margin-top * (2 / 4)))
+      calculateRem(calc($base-title-margin-botton * (2 / 4)));
+  }
+  @include device(mobile) {
+    font-size: calculateRem(calc($base-title-font-size * (2 / 4)));
+    margin-block: calculateRem(calc($base-title-margin-top * (2 / 4)))
+      calculateRem(calc($base-title-margin-botton * (2 / 4)));
+  }
 }
 
+$base-form-gap: 60px;
 .form {
   display: flex;
   flex-direction: column;
-  gap: calculateRem(60px);
+  gap: calculateRem($base-form-gap);
   width: 100%;
+
+  @include device(laptop) {
+    gap: calculateRem(calc($base-form-gap * (3 / 4)));
+  }
+  @include device(tablet) {
+    gap: calculateRem(calc($base-form-gap * (2 / 4)));
+  }
+  @include device(mobile) {
+    gap: calculateRem(calc($base-form-gap * (1 / 4)));
+  }
 }

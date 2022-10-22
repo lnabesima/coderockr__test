@@ -7,10 +7,26 @@
   width: 100%;
 }
 
+$base-font-size: 24px;
+$base-font-line-height: 34px;
+
 .label {
   font-weight: 400;
-  font-size: calculateRem(24px);
-  line-height: calculateRem(34px);
+  font-size: calculateRem($base-font-size);
+  line-height: calculateRem($base-font-line-height);
+
+  @include device(laptop) {
+    font-size: calculateRem(calc($base-font-size * (3 / 4)));
+    line-height: calculateRem(calc($base-font-line-height * (3 / 4)));
+  }
+  @include device(tablet) {
+    font-size: calculateRem(calc($base-font-size * (2 / 4)));
+    line-height: calculateRem(calc($base-font-line-height * (2 / 4)));
+  }
+  @include device(mobile) {
+    font-size: calculateRem(calc($base-font-size * (2 / 4)));
+    line-height: calculateRem(calc($base-font-line-height * (2 / 4)));
+  }
 }
 
 .input,
@@ -20,9 +36,33 @@
   border-radius: calculateRem(4px);
   width: 100%;
   font-size: calculateRem(24px);
+
+  @include device(laptop) {
+    font-size: calculateRem(calc($base-font-size * (3 / 4)));
+    line-height: calculateRem(calc($base-font-line-height * (3 / 4)));
+  }
+  @include device(tablet) {
+    font-size: calculateRem(calc($base-font-size * (2 / 4)));
+    line-height: calculateRem(calc($base-font-line-height * (2 / 4)));
+  }
+  @include device(mobile) {
+    font-size: calculateRem(calc($base-font-size * (2 / 4)));
+    line-height: calculateRem(calc($base-font-line-height * (2 / 4)));
+  }
 }
 
+$base-textArea-height: 200px;
 .textArea {
-  height: calculateRem(200px);
+  height: calculateRem($base-textArea-height);
   resize: none;
+
+  @include device(laptop) {
+    height: calculateRem(calc($base-textArea-height * (3 / 4)));
+  }
+  @include device(tablet) {
+    height: calculateRem(calc($base-textArea-height * (2 / 4)));
+  }
+  @include device(mobile) {
+    height: calculateRem(calc($base-textArea-height * (2 / 4)));
+  }
 }

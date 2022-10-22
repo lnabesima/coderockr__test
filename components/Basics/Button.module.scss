@@ -1,17 +1,41 @@
 @import '../../styles/base';
 
+$base-button-font-size: 24px;
+$base-button-width: 230px;
+$base-button-height: 60px;
+$base-button-gap: 39px;
 .button {
   background-color: $text-color;
-  font-size: calculateRem(24px);
+  font-size: calculateRem($base-button-font-size);
   color: white;
-  width: calculateRem(230px);
-  height: calculateRem(60px);
-  align-self: center;
+  width: calculateRem($base-button-width);
+  height: calculateRem($base-button-height);
   display: flex;
+  align-self: center;
+  flex-shrink: 0;
   align-items: center;
   justify-content: center;
-  gap: calculateRem(39px);
+  gap: calculateRem($base-button-gap);
   border-radius: calculateRem(4px);
+
+  @include device(laptop) {
+    font-size: calculateRem(calc($base-button-font-size * (3 / 4)));
+    width: calculateRem(calc($base-button-width * (3 / 4)));
+    height: calculateRem(calc($base-button-height * (3 / 4)));
+    gap: calculateRem(calc($base-button-gap * (3 / 4)));
+  }
+  @include device(tablet) {
+    font-size: calculateRem(calc($base-button-font-size * (2 / 4)));
+    width: calculateRem(calc($base-button-width * (2 / 4)));
+    height: calculateRem(calc($base-button-height * (2 / 4)));
+    gap: calculateRem(calc($base-button-gap * (3 / 4)));
+  }
+  @include device(mobile) {
+    font-size: calculateRem(calc($base-button-font-size * (2 / 4)));
+    width: calculateRem(calc($base-button-width * (2 / 4)));
+    height: calculateRem(calc($base-button-height * (2 / 4)));
+    gap: calculateRem(calc($base-button-gap * (1 / 4)));
+  }
 
   &.disabled {
     opacity: 0.5;
@@ -19,7 +43,22 @@
   }
 }
 
+$base-button-image-width: 21px;
+$base-button-image-height: 18px;
 .img {
   width: calculateRem(21px);
   height: calculateRem(18px);
+
+  @include device(laptop) {
+    width: calculateRem(calc($base-button-image-width * (3 / 4)));
+    height: calculateRem(calc($base-button-image-height * (3 / 4)));
+  }
+  @include device(tablet) {
+    width: calculateRem(calc($base-button-image-width * (2 / 4)));
+    height: calculateRem(calc($base-button-image-height * (2 / 4)));
+  }
+  @include device(mobile) {
+    width: calculateRem(calc($base-button-image-width * (2 / 4)));
+    height: calculateRem(calc($base-button-image-height * (2 / 4)));
+  }
 }

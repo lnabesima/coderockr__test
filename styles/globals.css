@@ -10,3 +10,9 @@ body {
   min-width: 100vw;
   min-height: 100vh;
 }
+
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+  body {
+    overflow-x: hidden;
+  }
+}

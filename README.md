@@ -1,34 +1,34 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Coderockr Test - Rockr Blog
 
-## Getting Started
+:brazil: Esse é um projeto que reproduz um blog.
 
-First, run the development server:
+As postagens são chamadas de uma API externa e renderizadas em uma listagem, mostrando imagem do _post_, autor, título e as primeiras linhas do post. Essa listagem recupera automaticamente novos posts, de acordo com o _scroll_ do usuário (_scroll_ infinito).
 
-```bash
-npm run dev
-# or
-yarn dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+Ao clicar em uma postagem, o usuário é redirecionado para uma tela com os detalhes da postagem, a imagem em maior resolução, a data do _post_, autor, título, e a postagem completa.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+O projeto ainda prevê o layout para comentários e postagem de novos posts, mas a integração com a API destes métodos não foi implementada.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+Para o desenvolvimento desse projeto foi utilizado o framework [Next.js](https://nextjs.org/).
 
-## Learn More
+## Bibliotecas externas
 
-To learn more about Next.js, take a look at the following resources:
+O [SASS](https://sass-lang.com/) foi usado como ferramenta de desenvolvimento das folhas de estilo devido possibilidade de criação de mixins e funções.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+----
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+:us: This is a project that reproduces a blog.
 
-## Deploy on Vercel
+The posts are fetched from an external API and rendered in a list, showing post image, author, title and first lines of the post. This list automatically fetches new posts, according to the user's scroll(infinite scroll).
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+When clicking on a post, the user is redirected to a page with the post details,  the post image in higher resolution, the date of the post, author, title, and the complete post.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+The project also provides the layout for comments and new posts, but the API integration for these methods was not implemented.
+
+For the development of this project the framework [Next.js](https://nextjs.org/) was used.
+
+## External libraries
+
+[SASS](https://sass-lang.com/) was used as a development tool for stylesheets because of the possibility of creating mixins and functions.
+

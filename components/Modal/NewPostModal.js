@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import { useState } from 'react';
 import { useNavbarData } from '../../context/NavbarData';
 import { Button } from '../Basics/Button';

@@ -5,8 +5,11 @@ const PostsContext = createContext();
 export const usePostsContext = () => useContext(PostsContext);
 
 export function PostsProvider({ children }) {
-  const [posts, setPosts] = useState();
   const API_URL = 'https://stormy-shelf-93141.herokuapp.com/articles';
+
+  const formatter = new Intl.DateTimeFormat('en-US', {
+    dateStyle: 'medium',
+  });
 
   const getPosts = async page => {
     try {
@@ -36,11 +39,14 @@ export function PostsProvider({ children }) {
       },
     });
     const json = await APIData.json();
+    json.date = formatter.format(new Date(json.date));
+    console.log(json.date);
+
     return json;
   };
 
   return (
-    <PostsContext.Provider value={{ getPosts, getPost, posts }}>
+    <PostsContext.Provider value={{ getPosts, getPost }}>
       {children}
     </PostsContext.Provider>
   );

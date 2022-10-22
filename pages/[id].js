@@ -4,6 +4,7 @@ import { usePostsContext } from '../context/PostsData';
 import { PostModal } from '../components/Modal/PostModal';
 import { useNavbarData } from '../context/NavbarData';
 import { ContactModal } from '../components/Modal/ContactModal';
+import Head from 'next/head';
 
 const Post = () => {
   const [loading, setLoading] = useState(false);
@@ -26,6 +27,9 @@ const Post = () => {
   if (postData)
     return (
       <>
+        <Head>
+          <title>Rockr Blog - {postData.title}</title>
+        </Head>
         {openContactModal && <ContactModal />}
         <PostModal
           id={postData.id}

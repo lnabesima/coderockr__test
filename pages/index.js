@@ -1,7 +1,7 @@
+import Head from 'next/head';
 import { useEffect, useState } from 'react';
 import { Feed } from '../components/Feed/Feed';
 import { ContactModal } from '../components/Modal/ContactModal';
-import { NewPostModal } from '../components/Modal/NewPostModal';
 import { PostModal } from '../components/Modal/PostModal';
 import { useNavbarData } from '../context/NavbarData';
 
@@ -39,6 +39,10 @@ const Home = () => {
 
   return (
     <>
+      <Head>
+        <title>Rockr Blog</title>
+      </Head>
+      
       {pages.map(page => (
         <Feed key={page} page={page} setInfinite={setInfinite} />
       ))}

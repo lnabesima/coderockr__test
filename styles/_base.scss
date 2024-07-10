@@ -1,0 +1,20 @@
+@use 'sass:math';
+
+$breakpoints: (
+  'mobile': 1000px,
+  'tablet': 1048px,
+  'laptop': 1440px,
+);
+
+@function calculateRem($size) {
+  @return math.div($size, 16px) * 1rem;
+}
+
+@mixin device($breakpoint) {
+  @media (max-width: map-get($breakpoints, $breakpoint)) {
+    @content;
+  }
+}
+
+$text-color: #2d2d2d;
+$text-gradient: #f1a10a;
